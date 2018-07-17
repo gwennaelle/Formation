@@ -1,0 +1,22 @@
+{
+  "name": "formation",
+  "version": "1.0.0",
+  "description": "TD formation",
+  "main": "index.js",
+  "scripts": {
+    "serve": "stencil-dev-server --root src --httpPort 8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gwennaelle/Formation.git"
+  },
+  "author": "groy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gwennaelle/Formation/issues"
+  },
+  "homepage": "https://github.com/gwennaelle/Formation#readme",
+  "dependencies": {
+    "@stencil/dev-server": "0.0.18"
+  }
+}
