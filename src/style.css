@@ -21,12 +21,14 @@ main {
     flex-grow: 1;
     overflow: scroll;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
 figure {
-    width: 200px;
+    width: 250px;
+    margin: 0.5em;
     font-size: 1em;
     font-weight: bold;
 }
@@ -34,18 +36,19 @@ figure {
 img {
     width: 100%;
     border: 3px solid black;
-    border-radius: 7px;
+    border-radius: 5%;
     box-shadow: 0 0 10px black;
     transition: transform 2s;
 }
 
 img:hover {
     border: 3px solid #2b71d8;
-    transform: scale(1.5,1.5);
+    transform: scale(1.1, 1.1);
 }
 
 figcaption {
     width: 100%;
+    font-size: 1.5em;
     white-space: nowrap;
     flex-grow: 1;
     overflow: hidden;
@@ -56,4 +59,25 @@ figcaption {
     figure{
         width: 100px;
     }
+}
+/* The Modal (background) */
+.modal{
+    position: absolute;
+    left: 20%;
+    top: 20%;
+    z-index: 1; /* Sit on top */
+    width: auto; /* Full width */
+    height: auto; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #17181b /* Fallback color */
+}
+
+/* Modal Content/Box */
+.modal-content {
+
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
 }
