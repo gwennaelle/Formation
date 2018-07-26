@@ -1,3 +1,6 @@
+// then / catch
+//------------------------------------------------
+
 new Promise(function (resove, reject){
     setTimeout(() => {
         reject('ko')
@@ -14,3 +17,23 @@ new Promise(function (resove, reject){
 })
 
 console.log('fin asynchrone');
+
+
+// async /await
+//------------------------------------------------
+async function callMyPromise(){
+    try{
+        const result = await new Promise(function(resove, reject){
+            setTimeout(() => {
+                resolve('ok')
+            }, 2000);
+        })
+        console.log(result)
+        console.log('fin asynchrone')
+    } catch (error){
+        console.error(error);
+    }
+}
+
+callMyPromise()
+console.log('fin sync')

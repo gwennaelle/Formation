@@ -15,8 +15,33 @@
 //
 const main = document.getElementsByTagName('main')[0]
 
+async function movieGrid() {
+    try {
+        let response = await fetch('./data/movies.json')
+        const movies = await response.json()
 
-fetch('./data/movies.json')
+        movies.forEach(movie => {
+            const figure = document.createElement('figure');
+            main.appendChild(figure);
+            figure.classList.add('main-figure');
+    
+            const img = document.createElement('img');
+            figure.appendChild(img);
+            img.src = `img/${movie.movieTag}.jpg`;
+            img.alt = movie.title;
+            img.onclick = detailView.bind(img, movie);
+            const figcaption = document.createElement('figcaption');
+            figure.appendChild(figcaption);
+            figcaption.innerText = movie.title;
+        })
+    } catch (error){
+        console.error(error)
+    }
+}
+
+movieGrid()
+
+/* fetch('./data/movies.json')
     .then(response => {
         return response.json();
     })
@@ -35,7 +60,7 @@ fetch('./data/movies.json')
     })
     )
     .catch(console.error);
-
+ */
 
 // Affichage vue detail
 //
@@ -56,6 +81,7 @@ function detailView(movie) {
 
     const modalFigure = document.createElement('figure');
     modalDiv.appendChild(modalFigure);
+    modalFigure.classList.add('modal-figure');
 
     const modalImg = document.createElement('img');
     modalFigure.appendChild(modalImg);
