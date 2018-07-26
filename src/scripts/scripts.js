@@ -15,28 +15,27 @@
 //
 const main = document.getElementsByTagName('main')[0]
 
-moviesTab.forEach(movie => {
 
-/*     fetch('./data/movies.json')
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (myJson) {
-            console.log(myJson);
-        }); */
+fetch('./data/movies.json')
+    .then(response => {
+        return response.json();
+    })
+    .then(data => data.forEach(movie => {
+        const figure = document.createElement('figure');
+        main.appendChild(figure);
 
-    const figure = document.createElement('figure');
-    main.appendChild(figure);
+        const img = document.createElement('img');
+        figure.appendChild(img);
+        img.src = `img/${movie.movieTag}.jpg`;
+        img.alt = movie.title;
+        img.onclick = detailView.bind(img, movie);
+        const figcaption = document.createElement('figcaption');
+        figure.appendChild(figcaption);
+        figcaption.innerText = movie.title;
+    })
+    )
+    .catch(console.error);
 
-    const img = document.createElement('img');
-    figure.appendChild(img);
-    img.src = `img/${movie.movieTag}.jpg`;
-    img.alt = movie.title;
-    img.onclick = detailView.bind(img, movie);
-    const figcaption = document.createElement('figcaption');
-    figure.appendChild(figcaption);
-    figcaption.innerText = movie.title;
-});
 
 // Affichage vue detail
 //
@@ -89,3 +88,5 @@ function closeModal() {
     main.removeChild(modalWindow);
     document.removeEventListener('keydown', escapeKeyListener);
 }
+
+
