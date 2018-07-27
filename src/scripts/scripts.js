@@ -41,26 +41,6 @@ async function movieGrid() {
 
 movieGrid()
 
-/* fetch('./data/movies.json')
-    .then(response => {
-        return response.json();
-    })
-    .then(data => data.forEach(movie => {
-        const figure = document.createElement('figure');
-        main.appendChild(figure);
-
-        const img = document.createElement('img');
-        figure.appendChild(img);
-        img.src = `img/${movie.movieTag}.jpg`;
-        img.alt = movie.title;
-        img.onclick = detailView.bind(img, movie);
-        const figcaption = document.createElement('figcaption');
-        figure.appendChild(figcaption);
-        figcaption.innerText = movie.title;
-    })
-    )
-    .catch(console.error);
- */
 
 // Affichage vue detail
 //
