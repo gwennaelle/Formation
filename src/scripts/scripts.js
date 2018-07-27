@@ -27,7 +27,7 @@ async function movieGrid() {
     
             const img = document.createElement('img');
             figure.appendChild(img);
-            img.src = `img/${movie.movieTag}.jpg`;
+            img.src = `assets/img/${movie.movieTag}.jpg`;
             img.alt = movie.title;
             img.onclick = detailView.bind(img, movie);
             const figcaption = document.createElement('figcaption');
@@ -85,7 +85,7 @@ function detailView(movie) {
 
     const modalImg = document.createElement('img');
     modalFigure.appendChild(modalImg);
-    modalImg.src = `img/${movie.movieTag}.jpg`;
+    modalImg.src = `assets/img/${movie.movieTag}.jpg`;
     modalImg.alt = movie.title;
 
     const modalP = document.createElement('p');

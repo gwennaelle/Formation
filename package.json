@@ -4,7 +4,8 @@
   "description": "TD formation",
   "main": "index.js",
   "scripts": {
-    "serve": "stencil-dev-server --root src --httpPort 8080"
+    "serve": "stencil-dev-server --root src --httpPort 8080",
+    "build": "grunt"
   },
   "repository": {
     "type": "git",
@@ -12,11 +13,15 @@
   },
   "author": "groy",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gwennaelle/Formation/issues"
+  "devDdependencies": {
+    "@stencil/dev-server": "0.0.18",
+    "grunt": "^1.0.3"
   },
-  "homepage": "https://github.com/gwennaelle/Formation#readme",
-  "dependencies": {
-    "@stencil/dev-server": "0.0.18"
+  "devDependencies": {
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-htmlmin": "^2.4.0",
+    "grunt-contrib-imagemin": "^2.0.1",
+    "grunt-contrib-uglify": "^3.3.0",
+    "grunt-contrib-uglify-es": "^3.3.0"
   }
 }
