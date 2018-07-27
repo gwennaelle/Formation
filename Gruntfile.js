@@ -3,6 +3,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-uglify-es');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
 
     grunt.initConfig({
         htmlmin: {                                     // Task
@@ -39,7 +40,24 @@ module.exports = function(grunt) {
                     dest: 'dist'
                 }]
             }
-          }
+          },
+          imagemin: {
+            static: {
+                options: {
+                    optimizationLevel: 3,
+                    svgoPlugins: [{removeViewBox: false}],
+                    use: [mozjpeg()] // Example plugin usage
+                }
+            },
+            dynamic: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/',
+                    src: ['**/*.{png,jpg,gif}'],
+                    dest: 'dist'
+                }]
+            }
+        }
       });
 
 
@@ -47,5 +65,5 @@ module.exports = function(grunt) {
         console.log('grunt ready')
     })
 
-    grunt.registerTask('default', ['htmlmin','cssmin', 'uglify'])
+    grunt.registerTask('default', ['htmlmin','cssmin', 'uglify', 'imagemin'])
 };
